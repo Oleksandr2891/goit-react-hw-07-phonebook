@@ -1,0 +1,29 @@
+{
+  "contacts": [
+    {
+      "id": "id-1",
+      "name": "Rosie Simpson",
+      "number": "459-12-56"
+    },
+    {
+      "id": "id-2",
+      "name": "Hermione Klin",
+      "number": "443-89-12"
+    },
+    {
+      "name": "Alex Lavrenko",
+      "number": "34225452354",
+      "id": "nCKOGz5"
+    },
+    {
+      "name": "Alex Lavrenko",
+      "number": "234234234345",
+      "id": "71em5nY"
+    },
+    {
+      "name": "asdasad",
+      "number": "32432342",
+      "id": "uLwiuZJ"
+    }
+  ]
+}

@@ -1,30 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { persistStore, persistReducer } from 'redux-persist'
-import logger from 'redux-logger';
-import item from "./reducerContacts";
-import filter from "./reducerFilter";
-import storage from 'redux-persist/lib/storage'
-
-const contactsConfig = {
-    key: 'contacts',
-    storage,
-    blacklist: ['filter']
-}
-
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import item from "./contacts/contacts-reducer";
+import filter from "./contacts/filter-reducer";
 
 const contacts = combineReducers({
-    item,
-    filter
-})
-
-
-export const store = configureStore({
-    reducer: { contacts: persistReducer(contactsConfig, contacts) },
-    middleware: [logger],
-    devTools: process.env.NODE_ENV === 'development',
+  item,
+  filter,
 });
 
-export const persistor = persistStore(store)
-
-
+export const store = configureStore({
+  reducer: { contacts },
+  middleware: (getDefaultMiddleware) =>
+    // getDefaultMiddleware().concat(logger, thunk),
+    getDefaultMiddleware().concat(thunk),
+  devTools: process.env.NODE_ENV === "development",
+});
