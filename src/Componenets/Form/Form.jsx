@@ -1,43 +1,22 @@
 import { FormWrapper } from "./FormStyled";
 import { connect, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/contacts-operation";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getContactsList } from "../../redux/selector";
 
-const Form = function () {
+const Form = function ({ name, number, handleChangeInput, resetForm }) {
   const dispatch = useDispatch();
   const contacts = useSelector(getContactsList);
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-
-  const handleChangeInput = (event) => {
-    const { name, value } = event.currentTarget;
-
-    switch (name) {
-      case "name":
-        setName(value);
-        break;
-
-      case "number":
-        setNumber(value);
-        break;
-
-      default:
-        alert("нет такой кнопки");
-    }
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const isContact = contacts.some((item) => item.name === name);
-    if (!isContact) {
-      dispatch(addContact({ name, number }));
-      setName("");
-      setNumber("");
-    } else {
-      alert(`${name} is already in contacts`);
-    }
+    // const isContact = contacts.some((item) => item.name === name);
+    // if (!isContact) {
+    dispatch(addContact({ name, number }));
+    resetForm();
+    // } else {
+    //   alert(`${name} is already in contacts`);
+    // }
   };
 
   return (

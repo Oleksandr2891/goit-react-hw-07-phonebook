@@ -5,7 +5,7 @@ export const getContactsFilter = (state) => state.contacts.filter;
 
 const visibleContacts = (item, filter) => {
   const normalizedFilter = filter?.toLowerCase();
-  console.log(`visible`);
+  console.log(`visible_Selector`);
   if (filter) {
     return item?.filter((contact) =>
       contact.name.toLowerCase().includes(normalizedFilter)

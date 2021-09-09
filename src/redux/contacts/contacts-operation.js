@@ -30,7 +30,7 @@ export const addContact = (contactData) => async (dispatch) => {
   dispatch(addAsyncContactRequests());
   try {
     const contact = await addContactApi(contactData);
-    console.log("operation", contact);
+
     dispatch(addAsyncContactSuccess(contact));
   } catch (error) {
     dispatch(addAsyncContactError(error));
