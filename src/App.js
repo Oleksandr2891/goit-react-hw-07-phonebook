@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <GlobalStyles />
-      {/* <Section title={"Phonebook"}>
+      <Section title={"Phonebook"}>
         <Form />
       </Section>
       <Section title={"Contacts"}>
@@ -17,7 +17,7 @@ export default function App() {
           <FIlter />
           <ContactList />
         </div>
-      </Section> */}
+      </Section>
     </>
   );
 }

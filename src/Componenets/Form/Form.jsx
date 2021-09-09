@@ -28,12 +28,6 @@ const Form = function () {
     }
   };
 
-  // const findName = function (contacts, payload) {
-  //   const isContact = contacts.some((item) => item.name === payload.name);
-  //   isContact && alert(`${payload.name} is already in contacts`);
-  //   return !isContact ? [...contacts, payload] : contacts;
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const isContact = contacts.some((item) => item.name === name);
