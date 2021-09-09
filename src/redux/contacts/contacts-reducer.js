@@ -8,7 +8,6 @@ import {
 const item = createReducer([], {
   [getAsyncContactsSuccess]: (_, { payload }) => payload,
   [addAsyncContactSuccess]: (state, { payload }) => {
-    console.log("4", payload);
     return [...state, payload];
   },
   [deleteAsyncContactSuccess]: (state, { payload }) =>

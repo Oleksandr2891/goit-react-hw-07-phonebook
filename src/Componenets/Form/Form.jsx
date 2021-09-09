@@ -1,5 +1,5 @@
 import { FormWrapper } from "./FormStyled";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/contacts-operation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";

@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { FilterWrapper } from "./FilterStyled";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { changeFilter } from "../../redux/contacts/contacts-actions";
 import { getContactsFilter } from "../../redux/selector";

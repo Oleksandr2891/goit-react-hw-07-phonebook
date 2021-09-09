@@ -2,8 +2,8 @@ import ContactList from "./Componenets/ContactList/ContactList";
 import FIlter from "./Componenets/Filter/FIlter";
 import Form from "./Componenets/Form/Form";
 import Section from "./Componenets/Section/Section";
-
 import GlobalStyles from "../src/style/GlobalStyle";
+import { ToastContainer } from "react-toastify";
 
 export default function App() {
   return (
@@ -17,6 +17,7 @@ export default function App() {
           <FIlter />
           <ContactList />
         </div>
+        <ToastContainer />
       </Section>
     </>
   );

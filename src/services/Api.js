@@ -27,7 +27,6 @@ const addContactApi = (dataContact) => {
   return axios
     .post(`contacts`, dataContact)
     .then(({ data }) => {
-      console.log("ужс:", data);
       return data;
     })
     .catch((err) => {
@@ -36,5 +35,3 @@ const addContactApi = (dataContact) => {
 };
 
 export { addContactApi };
-
-// http://localhost:7070/contacts?id=id-1&id=id-2
