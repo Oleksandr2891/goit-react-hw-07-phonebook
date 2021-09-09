@@ -1,11 +1,13 @@
 import { FormWrapper } from "./FormStyled";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/contacts-operation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { getContactsList } from "../../redux/selector";
 
 const Form = function () {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContactsList);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
@@ -26,11 +28,22 @@ const Form = function () {
     }
   };
 
+  // const findName = function (contacts, payload) {
+  //   const isContact = contacts.some((item) => item.name === payload.name);
+  //   isContact && alert(`${payload.name} is already in contacts`);
+  //   return !isContact ? [...contacts, payload] : contacts;
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addContact({ name, number }));
-    setName("");
-    setNumber("");
+    const isContact = contacts.some((item) => item.name === name);
+    if (!isContact) {
+      dispatch(addContact({ name, number }));
+      setName("");
+      setNumber("");
+    } else {
+      alert(`${name} is already in contacts`);
+    }
   };
 
   return (
