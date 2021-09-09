@@ -14,7 +14,7 @@ const contacts = combineReducers({
 
 export const store = configureStore({
   reducer: { contacts },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(logger, thunk),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+  // getDefaultMiddleware().concat(logger, thunk),
   devTools: process.env.NODE_ENV === "development",
 });

@@ -4,6 +4,7 @@ import { addContact } from "../../redux/contacts/contacts-operation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getContactsList } from "../../redux/selector";
+import { notifyError } from "../../services/toastify";
 
 const Form = function () {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const Form = function () {
       setName("");
       setNumber("");
     } else {
-      alert(`${name} is already in contacts`);
+      notifyError(`${name} is already in contacts`);
     }
   };
 
