@@ -27,3 +27,6 @@ export const getAsyncContactsSuccess = createAction(
   "contacts/getContactsSuccess"
 );
 export const getAsyncContactsError = createAction("contacts/getContactsError");
+
+export const setIsExsist = createAction("contacts/setIsExsist");
+export const resetIsExsist = createAction("contacts/resetIsExsist");

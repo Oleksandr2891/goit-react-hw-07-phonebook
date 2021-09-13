@@ -5,6 +5,7 @@ import logger from "redux-logger";
 import item, { isExsist } from "./contacts/contacts-reducer";
 import filter from "./contacts/filter-reducer";
 import error from "./contacts/contacts-errors";
+import { setIsExsist } from "./contacts/contacts-actions";
 
 const contacts = combineReducers({
   item,
@@ -14,11 +15,13 @@ const contacts = combineReducers({
 });
 
 const alertExsistContact = (state) => (next) => (action) => {
-  console.log(`action`, action);
-  if (action.type === "addContactRequests") {
-    action.payload = true;
-    throw new Error("IsExist");
-    // alert("This name is already exist");
+  if (action.type === "contacts/addContactRequests") {
+    const isContact = state
+      .getState()
+      .contacts.item.some((contact) => contact.name === action.payload.name);
+    if (isContact) {
+      state.dispatch(setIsExsist());
+    }
   }
   next(action);
 };
@@ -32,3 +35,5 @@ export const store = configureStore({
     getDefaultMiddleware().concat(thunk, alertExsistContact),
   devTools: process.env.NODE_ENV === "development",
 });
+
+// [mW({getS, dsp})()](action)

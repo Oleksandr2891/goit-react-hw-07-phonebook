@@ -14,6 +14,7 @@ import {
   getAsyncContactsError,
   getAsyncContactsRequests,
   getAsyncContactsSuccess,
+  resetIsExsist,
 } from "./contacts-actions";
 
 export const getContacts = () => async (dispatch) => {
@@ -26,9 +27,13 @@ export const getContacts = () => async (dispatch) => {
   }
 };
 
-export const addContact = (contactData) => async (dispatch) => {
-  dispatch(addAsyncContactRequests());
+export const addContact = (contactData) => async (dispatch, getState) => {
+  dispatch(addAsyncContactRequests(contactData));
+  const { isExsist } = getState().contacts;
   try {
+    if (isExsist) {
+      return dispatch(resetIsExsist());
+    }
     const contact = await addContactApi(contactData);
 
     dispatch(addAsyncContactSuccess(contact));
