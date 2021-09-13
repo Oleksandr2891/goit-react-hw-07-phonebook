@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ContactWrapper } from "./ContactListStyled";
 import ContactListItem from "./ContactListItem/ContactListItem";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import {
   getContacts,
   deleteContact,
@@ -10,6 +10,7 @@ import { getVisibleContacts } from "../../redux/selector";
 
 const ContactList = () => {
   const dispatch = useDispatch();
+
   const contacts = useSelector(getVisibleContacts);
 
   const onDeleteContact = (id) => dispatch(deleteContact(id));
@@ -33,4 +34,4 @@ const ContactList = () => {
   );
 };
 
-export default ContactList;
+export default memo(ContactList);

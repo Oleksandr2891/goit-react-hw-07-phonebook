@@ -3,6 +3,7 @@ import {
   addAsyncContactSuccess,
   getAsyncContactsSuccess,
   deleteAsyncContactSuccess,
+  addAsyncContactRequests,
 } from "./contacts-actions";
 
 const item = createReducer([], {
@@ -12,6 +13,10 @@ const item = createReducer([], {
   },
   [deleteAsyncContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
+});
+
+export const isExsist = createReducer(false, {
+  [addAsyncContactRequests]: (_, { payload }) => payload,
 });
 
 export default item;

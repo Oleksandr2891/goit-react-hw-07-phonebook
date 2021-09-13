@@ -30,6 +30,7 @@ export const addContact = (contactData) => async (dispatch) => {
   dispatch(addAsyncContactRequests());
   try {
     const contact = await addContactApi(contactData);
+
     dispatch(addAsyncContactSuccess(contact));
     notifySuccess("You have successfully added a new contact!");
   } catch (error) {
